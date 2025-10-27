@@ -39,15 +39,15 @@ public class InitData {
 
         Post post1 = new Post("1번 게시글", user1);
         Post post2 = new Post("2번 게시글", user1);
-        Post post3 = new Post("2번 게시글", user1);
-        Post post4 = new Post("2번 게시글", user1);
-        Post post5 = new Post("2번 게시글", user1);
-        Post post6 = new Post("2번 게시글", user1);
-        Post post7 = new Post("2번 게시글", user1);
-        Post post8 = new Post("2번 게시글", user1);
-        Post post9 = new Post("2번 게시글", user1);
+        Post post3 = new Post("3번 게시글", user1);
+        Post post4 = new Post("4번 게시글", user1);
+        Post post5 = new Post("5번 게시글", user1);
+        Post post6 = new Post("6번 게시글", user1);
+        Post post7 = new Post("7번 게시글", user1);
+        Post post8 = new Post("8번 게시글", user1);
+        Post post9 = new Post("9번 게시글", user1);
 
-        Post post10 = new Post("3번 게시글", user2);
+        Post post10 = new Post("10번 게시글", user2);
 
         postRepository.save(post1);
         postRepository.save(post2);
