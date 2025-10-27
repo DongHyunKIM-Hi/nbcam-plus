@@ -9,11 +9,11 @@ import jakarta.persistence.EntityManager;
 import java.util.List;
 import org.example.plus.domain.post.model.dto.PostSummaryDto;
 
-public class PostQueryDslRepositoryImpl implements PostQueryDslRepository {
+public class PostQuerydslRepositoryImpl implements PostQuerydslRepository {
 
     private final JPAQueryFactory queryFactory;
 
-    public PostQueryDslRepositoryImpl(EntityManager em) { queryFactory = new JPAQueryFactory(em); }
+    public PostQuerydslRepositoryImpl(EntityManager em) { queryFactory = new JPAQueryFactory(em); }
 
 
 
