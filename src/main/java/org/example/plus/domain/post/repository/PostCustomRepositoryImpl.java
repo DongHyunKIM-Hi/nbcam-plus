@@ -5,17 +5,14 @@ import static org.example.plus.common.entity.QPost.post;
 
 import com.querydsl.core.types.Projections;
 import com.querydsl.jpa.impl.JPAQueryFactory;
-import jakarta.persistence.EntityManager;
 import java.util.List;
+import lombok.RequiredArgsConstructor;
 import org.example.plus.domain.post.model.dto.PostSummaryDto;
 
-public class PostQuerydslRepositoryImpl implements PostQuerydslRepository {
+@RequiredArgsConstructor
+public class PostCustomRepositoryImpl implements PostCustomRepository {
 
     private final JPAQueryFactory queryFactory;
-
-    public PostQuerydslRepositoryImpl(EntityManager em) { queryFactory = new JPAQueryFactory(em); }
-
-
 
     @Override
     public List<PostSummaryDto> findPostSummary(String username) {
