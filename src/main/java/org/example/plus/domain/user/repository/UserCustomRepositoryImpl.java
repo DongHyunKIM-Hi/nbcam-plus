@@ -122,8 +122,13 @@ public class UserCustomRepositoryImpl implements UserCustomRepository {
             .where(builder)
             .fetchOne();
 
-        // ✅ 3) Page 객체로 변환
-        return new PageImpl<>(content, pageable, total != null ? total : 0L);
+        // ✅ 4) total이 null일 경우 NPE 발생 방지
+        if (total == null) {
+            total = 0L;
+        }
+
+        // ✅ 4) Page 객체로 변환
+        return new PageImpl<>(content, pageable, total);
     }
 
 }

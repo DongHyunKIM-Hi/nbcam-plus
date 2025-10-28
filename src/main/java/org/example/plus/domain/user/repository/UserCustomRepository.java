@@ -13,6 +13,5 @@ public interface UserCustomRepository {
 
     List<UserSearchResponse> searchUserByMultiCondition(UserSearchRequest request, Pageable pageable);
     List<UserSearchResponse> searchUserByMultiConditionV2(UserSearchRequest request, Pageable pageable);
-
     Page<UserSearchResponse> searchUserByMultiConditionPage(UserSearchRequest request, Pageable pageable);
 }
