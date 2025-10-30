@@ -3,16 +3,19 @@ package org.example.plus.domain.post.service;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.example.plus.common.entity.Post;
 import org.example.plus.common.entity.User;
 import org.example.plus.domain.post.model.dto.PostDto;
 import org.example.plus.domain.post.model.dto.PostSummaryDto;
 import org.example.plus.domain.post.repository.PostRepository;
 import org.example.plus.domain.user.repository.UserRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class PostService {
 
     private final PostRepository postRepository;
@@ -56,6 +59,17 @@ public class PostService {
 
         List<PostSummaryDto> result = postRepository.findPostSummary(username);
         return result;
+    }
+
+    @Cacheable(value = "postCache", key = "#postId")
+    public PostDto getPostById(long postId) {
+
+        log.info("캐시에 없으니 DB에서 직접 조회");
+        Post post = postRepository.findById(postId).orElseThrow(
+            () -> new IllegalArgumentException("등록된 포스트가 없습니다.")
+        );
+
+        return PostDto.from(post);
     }
 }
 

@@ -40,4 +40,9 @@ public class PostController {
         return ResponseEntity.ok(postService.getPostSummaryListByUsername(username));
     }
 
+    @GetMapping("/{postId}")
+    public ResponseEntity<PostDto> getPostById(@PathVariable long postId) {
+        return ResponseEntity.ok(postService.getPostById(postId));
+    }
+
 }
