@@ -24,12 +24,10 @@ public class Comment {
 
     private String content;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "post_id")
-    private Post post;
+    private long postId;
 
-    public Comment(String content, Post post) {
+    public Comment(String content, long postId) {
          this.content = content;
-         this.post = post;
+         this.postId = postId;
     }
 }
