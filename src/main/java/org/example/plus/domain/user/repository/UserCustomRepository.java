@@ -11,7 +11,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface UserCustomRepository {
 
-    List<UserSearchResponse> searchUserByMultiCondition(UserSearchRequest request, Pageable pageable);
+    List<UserSearchResponse> searchUserByMultiCondition(UserSearchRequest request);
     List<UserSearchResponse> searchUserByMultiConditionV2(UserSearchRequest request, Pageable pageable);
     Page<UserSearchResponse> searchUserByMultiConditionPage(UserSearchRequest request, Pageable pageable);
 }

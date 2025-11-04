@@ -10,6 +10,7 @@ import org.example.plus.domain.user.model.request.UpdateUserEmailRequest;
 import org.example.plus.domain.user.model.request.UserSearchRequest;
 import org.example.plus.domain.user.model.response.UserSearchResponse;
 import org.example.plus.domain.user.service.UserService;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,6 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -113,18 +113,18 @@ public class UserController {
 
     @GetMapping("/search")
     public ResponseEntity<List<UserSearchResponse>> searchUserList(
-        UserSearchRequest request,
-        Pageable pageable
+        UserSearchRequest request
     ) {
-        return ResponseEntity.ok(userService.searchUserList(request,pageable));
+        return ResponseEntity.ok(userService.searchUserList(request));
     }
 
     @GetMapping("/search/page")
     public ResponseEntity<Page<UserSearchResponse>> searchUserPage(
         UserSearchRequest request,
         Pageable pageable
+
     ) {
-        return ResponseEntity.ok(userService.searchUserPage(request,pageable));
+        return ResponseEntity.ok(userService.searchUserPage(request, pageable));
     }
 
 }

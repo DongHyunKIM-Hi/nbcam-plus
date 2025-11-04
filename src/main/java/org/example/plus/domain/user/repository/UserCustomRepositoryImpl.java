@@ -35,7 +35,7 @@ public class UserCustomRepositoryImpl implements UserCustomRepository {
     }
 
     @Override
-    public List<UserSearchResponse> searchUserByMultiCondition(UserSearchRequest request, Pageable pageable) {
+    public List<UserSearchResponse> searchUserByMultiCondition(UserSearchRequest request) {
         return queryFactory
             .select(Projections.constructor(UserSearchResponse.class,
                 user.username,
@@ -48,8 +48,6 @@ public class UserCustomRepositoryImpl implements UserCustomRepository {
                 roleEq(request.getRole())
             )
             .orderBy(user.username.asc())
-            .offset(pageable.getOffset())
-            .limit(pageable.getPageSize())
             .fetch();
     }
 

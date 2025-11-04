@@ -93,8 +93,8 @@ public class UserService {
     }
 
     @Transactional
-    public List<UserSearchResponse> searchUserList(UserSearchRequest request, Pageable pageable) {
-        return userRepository.searchUserByMultiCondition(request, pageable);
+    public List<UserSearchResponse> searchUserList(UserSearchRequest request) {
+        return userRepository.searchUserByMultiCondition(request);
     }
 
     @Transactional
