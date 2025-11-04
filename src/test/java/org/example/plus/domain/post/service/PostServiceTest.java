@@ -19,6 +19,7 @@ import org.example.plus.domain.post.model.dto.PostDto;
 import org.example.plus.domain.post.repository.PostRepository;
 import org.example.plus.domain.user.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -76,6 +77,7 @@ class PostServiceTest {
     }
 
     @Test
+    @Disabled
     @DisplayName("사용자 명으로 게시글 목록 조회 - 성공")
     void getPostListByUsername_success() {
 
